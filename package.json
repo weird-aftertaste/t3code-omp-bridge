@@ -1,0 +1,38 @@
+{
+  "name": "t3code-omp-bridge",
+  "version": "0.1.0",
+  "description": "Standalone Oh My Pi RPC compatibility bridge for T3 Code's Pi provider",
+  "type": "module",
+  "bin": {
+    "omp-t3-bridge": "./bin/omp-t3-bridge.mjs"
+  },
+  "files": [
+    "bin/omp-t3-bridge.mjs"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weird-aftertaste/t3code-omp-bridge.git"
+  },
+  "homepage": "https://github.com/weird-aftertaste/t3code-omp-bridge",
+  "bugs": {
+    "url": "https://github.com/weird-aftertaste/t3code-omp-bridge/issues"
+  },
+  "keywords": [
+    "oh-my-pi",
+    "omp",
+    "t3code",
+    "pi",
+    "rpc",
+    "coding-agent"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

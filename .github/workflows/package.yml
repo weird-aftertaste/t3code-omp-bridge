@@ -1,0 +1,32 @@
+name: Verify npm package
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: test & pack (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run bridge tests
+        run: npm test
+      - name: Check npm contents
+        run: npm pack --dry-run --json
+      - name: Verify global installation from local package
+        run: npm install -g .
+      - name: Verify globally installed package
+        run: npm list -g t3code-omp-bridge
